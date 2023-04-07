@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>学习vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/dayjs.min.js"></script>
+    <script>
+      Vue.config.productionTip = false;
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/javascript">
+    const student = {
+      template: `
+      <div>
+      <h2>学生名称：{{schoolName}}</h2>
+      <h2>学生地址：{{address}}</h2>
+      </div>
+      `,
+      data() {
+        return {
+          schoolName: "zzl",
+          address: "wuhu~",
+        };
+      },
+    };
+
+    const school = {
+      template: `
+      <div>
+      <h2>学校名称：{{schoolName}}</h2>
+      <h2>学校地址：{{address}}</h2>
+      <student></student>
+      </div>
+      `,
+      data() {
+        return {
+          schoolName: "交大",
+          address: "zzl",
+        };
+      },
+      components: {
+        student,
+      },
+    };
+
+    const hello = {
+      template: `
+      <div>
+      <h2>哈哈哈：{{msg}}</h2>
+      </div>
+      `,
+      data() {
+        return {
+          msg: "欢迎你~",
+        };
+      },
+    };
+
+    const app = {
+      template: `
+      <div>
+      <hello></hello>
+      <school></school>
+      </div>
+      `,
+      components: {
+        school,
+        hello,
+      },
+    };
+
+    new Vue({
+      template: `<app></app>`,
+      el: "#root",
+      components: {
+        app,
+      },
+    });
+  </script>
+</html>
