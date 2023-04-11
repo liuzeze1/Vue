@@ -10,10 +10,10 @@ export default {
       this.$axios({
         method: "post",
         url: "api/send_massage?user_code=2021010407&msg=hello",
-        // params: {
-        //   user_code: "2021010407",
-        //   msg: "hello world",
-        // },
+        params: {
+          user_code: "2021010407",
+          msg: "hello world",
+        },
       }).then(
         (res) => {
           console.log(res.data);
